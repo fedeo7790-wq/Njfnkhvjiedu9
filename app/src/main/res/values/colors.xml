@@ -1,0 +1,8 @@
+<resources>
+    <color name="bg_dark">#0B0E14</color>
+    <color name="accent_orange">#FF8C3C</color>
+    <color name="player_blue">#3BA3FF</color>
+    <color name="enemy_red">#FF4B4B</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
