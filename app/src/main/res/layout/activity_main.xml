@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- ===================== BLUETOOTH SETUP SCREEN ===================== -->
+    <ScrollView
+        android:id="@+id/setupScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚔️ معركة الجنود بلوتوث"
+                android:textColor="@color/accent_orange"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="فعّل البلوتوث واقرن الجهازين قبل البدء، ثم اختر: مضيف أو اتصال بجهاز مقترن"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/enableBtBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1) فعّل البلوتوث" />
+
+            <Button
+                android:id="@+id/hostBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="🖥️ استضف كمضيف (استنى اتصال صديقك)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="— أو اتصل بجهاز مقترن —"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp" />
+
+            <Button
+                android:id="@+id/refreshPairedBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔄 تحديث قائمة الأجهزة المقترنة" />
+
+            <LinearLayout
+                android:id="@+id/pairedDevicesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ===================== GAME SCREEN ===================== -->
+    <FrameLayout
+        android:id="@+id/gameScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.example.soldiersbattle.GameView
+            android:id="@+id/gameView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- HUD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/myHpText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="أنت: 100%"
+                android:textColor="@color/player_blue"
+                android:textStyle="bold"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textColor="@color/accent_orange"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="8dp" />
+
+            <TextView
+                android:id="@+id/enemyHpText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="الخصم: 100%"
+                android:textColor="@color/enemy_red"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ammoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:text="🔫 6/6"
+            android:textColor="#FFE93B"
+            android:textStyle="bold"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/connStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:text="متصل ✅"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/resultBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:textColor="#FFE93B"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/restartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:text="إعادة اللعب"
+            android:visibility="gone" />
+
+        <!-- Controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:padding="14dp">
+
+            <Button
+                android:id="@+id/leftBtn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="◀" />
+
+            <Button
+                android:id="@+id/rightBtn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:text="▶" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/duckBtn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="🙇" />
+
+            <Button
+                android:id="@+id/shootBtn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:text="🔫" />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>
